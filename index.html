@@ -94,6 +94,26 @@
             }
         }
     </style>
+
+    <!-- Event snippet for Outbound clicks conversion page
+    In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-18009148360/4J4KCI-uupscEMiXt4tD',
+          'value': 1.0,
+          'currency': 'CAD',
+          'event_callback': callback
+      });
+      return false;
+    }
+    </script>
+
 </head>
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18009148360"></script>
 <script>
@@ -118,7 +138,7 @@
 
         <!-- <iframe data-testid="embed-iframe" style="border-radius:12px; max-width: 600px;" src="https://open.spotify.com/embed/playlist/7nd7kdPKrEn42QPJKPySv4?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> -->
 
-        <a class="spotify-btn" href="https://open.spotify.com/playlist/7nd7kdPKrEn42QPJKPySv4?si=NSN7iZroTkCV-iTn41Wigg" target="_blank">
+        <a class="spotify-btn" href="https://open.spotify.com/playlist/7nd7kdPKrEn42QPJKPySv4?si=NSN7iZroTkCV-iTn41Wigg" onclick="return gtag_report_conversion(this.href);" target="_blank">
             🎵 Listen on Spotify
         </a>
     </div>
